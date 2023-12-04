@@ -37,7 +37,7 @@ export default function ContactsSidebar(props: SidebarProps) {
   }, [searchParams]);
 
   return (
-    <aside className="flex flex-col w-1/4 bg-black-5 border-r-2 border-black-0 max-h-screen min-h-screen my-2">
+    <aside className="flex flex-col w-1/4 bg-black-5 border-r-2 border-black-0 max-h-screen min-h-screen py-2">
       <div className="border-b-2 border-black-0 p-2 ">
         <ContactsSearchForm
           onContactSearch={onContactSearch}

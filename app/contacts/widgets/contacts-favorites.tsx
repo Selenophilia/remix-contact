@@ -8,15 +8,18 @@ interface ContactsFavoriteProps {
 
 export default function ContactsFavorite({ contact }: ContactsFavoriteProps) {
   const fetcher = useFetcher();
-  const favorite = fetcher.formData
-    ? fetcher.formData.get("favorite") === "true"
-    : contact.favorite;
+  let favorite;
+
+  if (fetcher.formData) {
+    favorite = fetcher.formData.get("favorite") === "true";
+  } else {
+    favorite = contact.favorite;
+  }
 
   return (
     <fetcher.Form method="post">
       <button
         className="shadow-none"
-        aria-label={favorite ? "Remove from favorites" : "Add to favorites"}
         name="favorite"
         value={favorite ? "false" : "true"}
       >

@@ -31,6 +31,7 @@ export default function ContactsSidebar(props: SidebarProps) {
   const navigation = useNavigation();
   const searching = (navigation.location &&
     new URLSearchParams(navigation.location.search).has("q")) as boolean;
+  const noContact = body.length === 0 && !searching;
 
   useEffect(() => {
     setSearchValue(searchParams || "");
@@ -55,7 +56,7 @@ export default function ContactsSidebar(props: SidebarProps) {
         </div>
       )}
 
-      {body.length === 0 && !searching && (
+      {noContact && (
         <p className="flex flex-col items-center justify-center my-2 h-full">
           No Contact found!
         </p>
@@ -65,7 +66,7 @@ export default function ContactsSidebar(props: SidebarProps) {
         {!searching && <ul className="p-0 m-0">{body}</ul>}
       </nav>
 
-      <h1 className="flex items-center font-medium m-0 py-5 px-6 border-t-2 border-black-0 remix-icon">
+      <h1 className="font-medium m-0 py-2 px-6 border-t-2 border-black-0 remix-icon">
         {title}
       </h1>
     </aside>

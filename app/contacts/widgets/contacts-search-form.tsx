@@ -13,13 +13,8 @@ export default function ContactsSearchForm(props: ContactsSearchFormProps) {
 
   return (
     <div className="flex flex-row w-full items-center justify-between gap-5">
-      <Form
-        id="search-form"
-        role="search"
-        onChange={(event) => onContactSearch(event)}
-      >
+      <Form role="search" onChange={(event) => onContactSearch(event)}>
         <input
-          id="q"
           aria-label="Search contacts"
           className="w-full rounded-md pl-8 py-2 shadow-md search-icon bg-no-repeat bg-[length:24px_24px] bg-[center_left_0.5rem] relative"
           placeholder="Search"

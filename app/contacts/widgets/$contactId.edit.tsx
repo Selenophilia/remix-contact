@@ -72,7 +72,6 @@ export default function ContactEdit() {
 
   return (
     <Form
-      id="contact-form"
       method="post"
       className="flex flex-1 flex-col justify-center h-1/2 w-8/12"
     >

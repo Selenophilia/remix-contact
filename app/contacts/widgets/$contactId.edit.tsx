@@ -5,7 +5,7 @@ import { json, redirect } from "@remix-run/node";
 import { Form, useLoaderData, useNavigate } from "@remix-run/react";
 import invariant from "tiny-invariant";
 
-import { getContact, updateContact } from "../data";
+import { getContact, updateContact } from "../../data";
 import {
   ValidationError,
   getValidationError,

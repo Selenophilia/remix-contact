@@ -4,9 +4,9 @@ import type { LoaderFunctionArgs } from "@remix-run/node";
 
 import invariant from "tiny-invariant";
 
-import { getContact, updateContact } from "../data";
+import { getContact, updateContact } from "../../data";
 import { FormEvent } from "react";
-import Contact from "./widgets/contact";
+import Contact from "./contact";
 
 export const loader = async ({ params }: LoaderFunctionArgs) => {
   invariant(params.contactId, "Missing id param");

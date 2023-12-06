@@ -4,7 +4,7 @@ module.exports = {
   serverModuleFormat: "cjs",
   routes(defineRoutes) {
     return defineRoutes((route) => {
-      route("/", "contacts/_index.tsx");
+      route("/", "_index.tsx");
       route("/contacts/:contactId", "contacts/widgets/$contactId.tsx");
       route(
         "/contacts/:contactId/edit",

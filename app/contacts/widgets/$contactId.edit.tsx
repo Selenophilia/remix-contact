@@ -195,18 +195,7 @@ export default function ContactEdit() {
             value={avatarSrc}
             onChange={(event: ChangeEvent<HTMLInputElement>) => {
               const { value } = event.target || {};
-              const validationResult = validationSchema.nonempty
-                .and(validationSchema.hasUrl)
-                .safeParse(value);
-
-              const validationError = getValidationError(validationResult, [
-                ValidationError.HasUrl,
-              ]);
-
-              if (validationError) {
-                setAvatarError(validationErrorMap[validationError]);
-              }
-              setAvatarSrc(event.target.value);
+              setAvatarSrc(value);
             }}
           />
 
@@ -232,7 +221,6 @@ export default function ContactEdit() {
             setNotesError("");
             const validationResult = validationSchema.nonempty
               .and(validationSchema.nonempty)
-              .and(validationSchema.noSpecialCharacter)
               .safeParse(value);
 
             const validationError = getValidationError(validationResult, [

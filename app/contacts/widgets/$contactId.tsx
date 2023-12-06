@@ -6,7 +6,7 @@ import invariant from "tiny-invariant";
 
 import { getContact, updateContact } from "../../data";
 import { FormEvent } from "react";
-import Contact from "../../components/contact";
+import Contact from "../../../components/contact";
 
 export const loader = async ({ params }: LoaderFunctionArgs) => {
   invariant(params.contactId, "Missing id param");

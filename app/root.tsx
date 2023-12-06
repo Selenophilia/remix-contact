@@ -7,7 +7,7 @@ import {
   Scripts,
   ScrollRestoration,
 } from "@remix-run/react";
-import styles from "./styles/main.css";
+import styles from "../styles/main.css";
 
 import { getContacts } from "./data";
 import ContactsPage from "./contacts/page";
@@ -21,7 +21,7 @@ export const loader = async ({ request }: LoaderFunctionArgs) => {
 
 export const links: LinksFunction = () => [{ rel: "stylesheet", href: styles }];
 
-export default function App() {
+export default function RootLayout() {
   return (
     <html lang="en">
       <head>

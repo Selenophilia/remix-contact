@@ -16,8 +16,8 @@ export const action = async ({ params, request }: ActionFunctionArgs) => {
   try {
     invariant(params.contactId, "Missing contactId param");
     const formData = await request.formData();
-    const updates = Object.fromEntries(formData);
-    await updateContact(params.contactId, updates);
+    const jsonObject = Object.fromEntries(formData);
+    await updateContact(params.contactId, jsonObject);
     return redirect(`/contacts/${params.contactId}`);
   } catch (_) {
     invariant("An error occured");
@@ -25,12 +25,16 @@ export const action = async ({ params, request }: ActionFunctionArgs) => {
 };
 
 export const loader = async ({ params }: LoaderFunctionArgs) => {
-  invariant(params.contactId, "Missing contactId param");
-  const contact = await getContact(params.contactId);
-  if (!contact) {
-    throw new Response("Not Found", { status: 404 });
+  try {
+    invariant(params.contactId, "Missing contactId param");
+    const contact = await getContact(params.contactId);
+    if (!contact) {
+      throw new Response("No contact found", { status: 404 });
+    }
+    return json({ contact });
+  } catch (error) {
+    invariant("An error occured cannot fetch contact data!");
   }
-  return json({ contact });
 };
 
 export default function ContactEdit() {

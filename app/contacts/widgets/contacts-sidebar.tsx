@@ -1,23 +1,17 @@
 import { useEffect, useState, FormEvent } from "react";
-import { json, LoaderFunctionArgs, redirect } from "@remix-run/node";
+import { redirect } from "@remix-run/node";
 
 import { useLoaderData, useNavigation } from "@remix-run/react";
 
-import { createEmptyContact, getContacts } from "../../data";
+import { createEmptyContact } from "../../data";
 import ContactsSearchForm from "~/contacts/widgets/contacts-search-form";
+import { loader } from "~/root";
 
 interface SidebarProps {
   onContactSearch: (event: FormEvent<HTMLFormElement>) => void;
   title: string;
   body: JSX.Element[];
 }
-
-export const loader = async ({ request }: LoaderFunctionArgs) => {
-  const url = new URL(request.url);
-  const searchParams = url.searchParams.get("q");
-  const contacts = await getContacts(searchParams);
-  return json({ contacts, searchParams });
-};
 
 export const action = async () => {
   const contact = await createEmptyContact();

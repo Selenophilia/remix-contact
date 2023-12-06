@@ -1,4 +1,4 @@
-import { extractFirstAndLastName } from "../../utils/extract-first-and-last-name";
+import { extractFirstAndLastName } from "../utils/extract-first-and-last-name";
 
 interface AvatarProps {
   src?: string;

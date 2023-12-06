@@ -1,9 +1,4 @@
-import {
-  LinksFunction,
-  json,
-  redirect,
-  LoaderFunctionArgs,
-} from "@remix-run/node";
+import { LinksFunction, json, LoaderFunctionArgs } from "@remix-run/node";
 
 import {
   Links,

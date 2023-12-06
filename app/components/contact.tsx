@@ -1,5 +1,5 @@
 import Avatar from "./avatar";
-import ContactsFavorite from "./contacts-favorites";
+import ContactsFavorite from "../contacts/widgets/contacts-favorites";
 import { ContactRecord } from "~/data";
 
 interface ContactProps {

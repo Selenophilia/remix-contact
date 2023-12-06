@@ -1,18 +1,9 @@
-import { json, redirect, LoaderFunctionArgs } from "@remix-run/node";
-
-import { getContacts } from "./data";
+import { redirect } from "@remix-run/node";
 
 import { createEmptyContact } from "./data";
 export const action = async () => {
   const contact = await createEmptyContact();
   return redirect(`/contacts/${contact.id}/edit`);
-};
-
-export const loader = async ({ request }: LoaderFunctionArgs) => {
-  const url = new URL(request.url);
-  const searchParams = url.searchParams.get("q");
-  const contacts = await getContacts(searchParams);
-  return json({ contacts, searchParams });
 };
 
 export default function Index() {
